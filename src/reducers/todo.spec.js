@@ -16,8 +16,8 @@ describe("Todo Reducer", ()=>{
             { id : 2, name : "another", isComplete : true}
         ]
 
-        const someResult = reducer(startTodo, {type : "TODO_ADD", payload : { id : 2, name : "another", isComplete : true}} );
-        expect(expectTodo).toEqual(someResult);
+        const someState = reducer({todos : startTodo}, {type : "TODO_ADD", payload : { id : 2, name : "another", isComplete : true}} );
+        expect(someState.todos).toEqual(expectTodo);
     })
 
 })
