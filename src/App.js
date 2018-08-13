@@ -3,8 +3,7 @@ import  TodoForm from './components/TodoForms';
 import  TodoList from './components/TodoList';
 import logo from './logo.svg';
 import './App.css';
-import {connect} from 'react-redux';
-import {CurrentTodoAction} from './actions/actions';
+
 
 
 
@@ -17,7 +16,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React with Redux</h1>
         </header>
         <div className="Todo-App">
-            <TodoForm currentTodo={this.props.currentTodo} onToggleChange={this.props.CurrentTodoAction} />
+            <TodoForm  />
             <TodoList todos = {this.props.todos} />
             
         </div>
@@ -26,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default  connect((state) => state, {CurrentTodoAction})(App)
+export default  App;

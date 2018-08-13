@@ -1,8 +1,10 @@
 import React from 'react'
+import {connect} from 'react-redux';
+import {CurrentTodoAction} from '../actions/actions';
 
-export default  ({onToggleChange, currentTodo}) =>{
+let TodoForm =  ({CurrentTodoAction, currentTodo}) =>{
     const handleOnChange = (e) =>{
-           onToggleChange(e.target.value);
+        CurrentTodoAction(e.target.value);
     }
     return (
         <form>
@@ -10,3 +12,6 @@ export default  ({onToggleChange, currentTodo}) =>{
         </form> 
     )
 }
+
+const stateToProps = (state) =>({currentTodo : state.currentTodo});
+export default connect(stateToProps, {CurrentTodoAction})(TodoForm);

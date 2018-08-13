@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux';;
 
 const TodoItem =({id, name, isComplete }) =>(
     <li>
@@ -7,7 +8,7 @@ const TodoItem =({id, name, isComplete }) =>(
      </li>
 )
 
-export default  ({todos}) =>(
+  let TodoList=({todos}) =>console.log("list rendering") || (
     <div className="Todo-List">
     <ul>
         {todos.map((todo, i) => (
@@ -16,3 +17,5 @@ export default  ({todos}) =>(
     </ul>
     </div>
 )
+
+export default connect((state)=>({todos : state.todos}))(TodoList);
