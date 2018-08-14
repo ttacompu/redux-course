@@ -9,7 +9,7 @@ const initState ={
 export default (state = initState, action) =>{
     switch(action.type){
         case TODO_ADD:
-        return  {...state, todos : [...state.todos, action.payload]}
+        return  {...state, currentTodo : '', todos : [...state.todos, action.payload]}
         case  TODO_CURRENT:
             return {...state, currentTodo : action.payload}
         case TODO_LOAD : 
