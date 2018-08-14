@@ -1,6 +1,7 @@
 import {TODO_CURRENT, TODO_ADD, TODO_LOAD} from '../variables'
 import { getTodos } from '../lib/todoService';
 
+
 export const AddTodoAction = (val) =>{
     return { type : TODO_ADD  , payload : val};
 }
@@ -15,7 +16,9 @@ export const LoadTodos = (todos) =>{
 }
 
 export const fetchTodos= () => {
-    return () => {
-            getTodos().then(todos => console.log(todos))
+    return (dispatch) => {
+            getTodos().then(todos =>{
+                dispatch(LoadTodos(todos))
+            } )
     }
 }

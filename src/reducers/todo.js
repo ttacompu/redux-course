@@ -1,5 +1,5 @@
-import {TODO_CURRENT, TODO_ADD} from '../variables';
-import {getTodos} from '../lib/todoService';
+import {TODO_CURRENT, TODO_ADD, TODO_LOAD } from '../variables';
+
 
 const initState ={
     todos : [],
@@ -13,7 +13,7 @@ export default (state = initState, action) =>{
         case  TODO_CURRENT:
             return {...state, currentTodo : action.payload}
         case TODO_LOAD : 
-             return {...state, todos : [...acton.payload]}
+             return {...state, todos : [...action.payload]}
         default:
             return state;
     }
