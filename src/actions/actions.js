@@ -1,9 +1,21 @@
-import {TODO_CURRENT, TODO_ADD} from '../variables'
-export function AddTodoAction(val){
+import {TODO_CURRENT, TODO_ADD, TODO_LOAD} from '../variables'
+import { getTodos } from '../lib/todoService';
+
+export const AddTodoAction = (val) =>{
     return { type : TODO_ADD  , payload : val};
 }
 
-export function CurrentTodoAction(val){
+export const  CurrentTodoAction= (val) =>{
     return {type : TODO_CURRENT, payload : val};
 
+}
+
+export const LoadTodos = (todos) =>{
+    return { type : TODO_LOAD, payload : todos }
+}
+
+export const fetchTodos= () => {
+    return () => {
+            getTodos().then(todos => console.log(todos))
+    }
 }
