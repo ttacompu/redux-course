@@ -25,5 +25,5 @@ class TodoForm extends Component{
 }
 
 
-const stateToProps = (state) =>({currentTodo : state.currentTodo});
+const stateToProps = (state) =>({currentTodo : state.todo.currentTodo});
 export default connect(stateToProps, {CurrentTodoAction, saveTodo})(TodoForm);

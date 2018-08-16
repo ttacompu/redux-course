@@ -28,4 +28,4 @@ class TodoList extends Component{
 }
 
 
-export default connect(state=>({todos : state.todos}),{ fetchTodos })(TodoList);
+export default connect(state=>({todos : state.todo.todos}),{ fetchTodos })(TodoList);
