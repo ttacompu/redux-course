@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {fetchTodos} from '../actions/actions'
+import { bindActionCreators } from 'redux';
 
 const TodoItem =({id, name, isComplete }) =>(
     <li>
@@ -27,5 +28,7 @@ class TodoList extends Component{
     }
 }
 
-
-export default connect(state=>({todos : state.todo.todos}),{ fetchTodos })(TodoList);
+const mapDispatchToProps = (dispatch) =>{
+    return { fetchTodos : bindActionCreators(fetchTodos, dispatch)}
+} 
+export default connect(state=>{return ({todos : state.todo.todos})},mapDispatchToProps)(TodoList);

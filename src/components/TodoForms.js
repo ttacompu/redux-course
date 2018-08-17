@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import {CurrentTodoAction, saveTodo} from '../actions/actions';
+import { bindActionCreators } from 'redux';
 
 class TodoForm extends Component{
 
@@ -25,5 +26,13 @@ class TodoForm extends Component{
 }
 
 
-const stateToProps = (state) =>({currentTodo : state.todo.currentTodo});
-export default connect(stateToProps, {CurrentTodoAction, saveTodo})(TodoForm);
+const stateToProps = (state) =>{return ({currentTodo : state.todo.currentTodo}) };
+
+const mapDispatchToProps = (dispatch) =>{
+    return { CurrentTodoAction : bindActionCreators(CurrentTodoAction, dispatch),
+        saveTodo :bindActionCreators(saveTodo, dispatch)
+    }
+} 
+
+
+export default connect(stateToProps,  mapDispatchToProps )(TodoForm);

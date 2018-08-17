@@ -7,4 +7,4 @@ const Message = ({message}) =>{
     : null
 }
 
-export default connect((state) => state.message)(Message);
+export default connect((state) => ({message : state.message}))(Message);
