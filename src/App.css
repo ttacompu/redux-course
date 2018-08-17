@@ -45,6 +45,10 @@ li{
   list-style-type : none;
 }
 
+li span.delete-item{
+  visibility: hidden;
+}
+
 .message{
   background-color: #61DAFB;
   color : white;
@@ -55,4 +59,8 @@ li{
   left : 50%;
   margin-left: -100px;
   top : 195px;
+}
+
+li:hover span.delete-item{
+  visibility: visible;
 }

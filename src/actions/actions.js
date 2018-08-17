@@ -1,5 +1,5 @@
-import {TODO_CURRENT, TODO_ADD, TODO_LOAD, TODO_REPLACE,  MESSAGE_SHOW} from '../variables'
-import { getTodos, createTodo, updateTodo } from '../lib/todoService';
+import {TODO_CURRENT, TODO_ADD, TODO_LOAD, TODO_REPLACE, TODO_REMOVE, MESSAGE_SHOW} from '../variables'
+import { getTodos, createTodo, updateTodo, destroyTodo } from '../lib/todoService';
 
 
 export const AddTodoAction = (val) =>{
@@ -26,6 +26,10 @@ export const replaceTodo = (todo) =>{
     return  {type : TODO_REPLACE, payload : todo};
 }
 
+export const removedTodo = (id) =>{
+    return  {type : TODO_REMOVE, payload : id};
+}
+
 export const fetchTodos= () => {
     return (dispatch) =>
      {
@@ -40,6 +44,14 @@ export const saveTodo = (name) =>{
     return (dispatch) =>{
         dispatch(showMessage('saving todo'));
         createTodo(name).then(res => dispatch(AddTodo(res)))
+    }
+}
+
+export const deleteTodo =(id) =>{
+    return (dispatch, getState) =>{
+        dispatch(showMessage('deleting'));
+        destroyTodo(id).then( () =>dispatch(removedTodo(id)) )
+
     }
 }
 

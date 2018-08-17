@@ -1,4 +1,4 @@
-import {MESSAGE_SHOW, TODO_REPLACE, TODO_ADD, TODO_LOAD } from '../variables';
+import {MESSAGE_SHOW, TODO_REPLACE, TODO_ADD, TODO_LOAD, TODO_REMOVE } from '../variables';
 
 export default (state = '', action) =>{
     switch(action.type){
@@ -7,6 +7,7 @@ export default (state = '', action) =>{
         case TODO_LOAD:
         case TODO_REPLACE:
         case TODO_ADD:
+        case TODO_REMOVE:
             return '';
         default:
             return state;

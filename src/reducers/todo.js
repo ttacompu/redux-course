@@ -1,4 +1,4 @@
-import {TODO_CURRENT, TODO_ADD, TODO_LOAD, TODO_REPLACE } from '../variables';
+import {TODO_CURRENT, TODO_ADD, TODO_LOAD, TODO_REPLACE, TODO_REMOVE } from '../variables';
 
 
 const initState ={
@@ -18,6 +18,8 @@ export default (state = initState, action) =>{
             return {...state, todos : state.todos.map(t => (t.id === action.payload.id) 
                 ? action.payload 
                 : t   ) };
+        case TODO_REMOVE:
+                return {...state, todos : state.todos.filter(t => t.id !== action.payload)};
         default:
             return state;
     }
